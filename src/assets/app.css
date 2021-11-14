@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@300&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply font-Notosans;
+}
+
+h1 {
+    @apply font-medium text-4xl;
+}
+h2 {
+    @apply font-medium text-3xl;
+}
+h3 {
+    @apply font-bold text-2xl;
+}
+h4 {
+    @apply font-bold text-xl;
+}
+h5 {
+    @apply font-bold text-lg;
+}
+h6 {
+    @apply font-bold text-base;
+}
+
+.p1 {
+    @apply font-normal text-base;
+}
+.p2 {
+    @apply font-normal text-sm;
+}
+.remark {
+    @apply font-normal text-xs;
+}
+.buttonTextBg {
+    @apply text-base font-medium;
+}
+.buttonTextMd {
+    @apply text-sm font-medium;
+}
+.buttonTextSm {
+    @apply text-xs font-medium;
+}
