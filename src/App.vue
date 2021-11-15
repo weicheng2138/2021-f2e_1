@@ -4,15 +4,14 @@ import Nav from "./components/Nav.vue";
 import SectionSearch from "./components/SectionSearch.vue";
 
 export default defineComponent({
-    name: "App",
-    components: { Nav, SectionSearch },
+	name: "App",
+	components: { Nav, SectionSearch },
 });
 </script>
 
 <template>
-    <Nav />
-    <SectionSearch />
+	<Nav />
+	<SectionSearch />
 </template>
 
-<style>
-</style>
+<style></style>
