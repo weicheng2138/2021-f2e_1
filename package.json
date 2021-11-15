@@ -1,5 +1,6 @@
 {
 	"name": "taiwan-tourism",
+	"homepage": "https://weicheng2138.github.io/2021-f2e_1",
 	"version": "0.1.0",
 	"scripts": {
 		"dev": "vite",
