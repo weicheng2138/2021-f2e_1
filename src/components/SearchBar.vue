@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DropDownList from "./DropDownList.vue";
 </script>
+
 <template>
 	<div
 		class="
@@ -16,15 +17,17 @@ import DropDownList from "./DropDownList.vue";
 		"
 	>
 		<DropDownList
-			class="w-full rounded-lg h-14 mb-3 md:mb-0 md:mr-3 md:w-80"
+			class="z-50 w-full rounded-lg h-14 mb-3 md:mb-0 md:mr-3 md:w-80"
 		/>
 		<input
-			class="w-full rounded-lg h-14 pl-5 mb-3 md:mb-0 md:mr-3"
+			class="z-10 w-full rounded-lg h-14 pl-5 mb-3 md:mb-0 md:mr-3"
 			type="text"
 			placeholder="搜尋景點 例如：日月潭..."
 		/>
-		<button class="bg-primary w-full text-white rounded-lg h-14 md:w-48">
-			搜尋*
+		<button
+			class="z-10 bg-primary w-full text-white rounded-lg h-14 md:w-48"
+		>
+			搜尋
 		</button>
 	</div>
 </template>

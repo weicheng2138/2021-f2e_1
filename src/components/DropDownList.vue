@@ -1,141 +1,139 @@
 <template>
-	<div>
+	<div class="transition duration-500 ease-in-out">
 		<!-- This example requires Tailwind CSS v2.0+ -->
-		<div>
-			<button
-				type="button"
-				class="
-					inline-flex
-					justify-between
-					items-center
-					px-5
-					rounded-md
-					w-full
-					h-14
-					border border-gray-300
-					shadow-sm
-					bg-white
-					text-base
-					font-medium
-					text-gray-400
-					hover:bg-gray-50
-					focus:outline-none
-					focus:ring-2
-					focus:ring-offset-2
-					focus:ring-offset-gray-100
-					focus:ring-indigo-500
-				"
-				id="menu-button"
-				aria-expanded="true"
-				aria-haspopup="true"
-			>
-				不限區域
-				<!-- Heroicon name: solid/chevron-down -->
-				<svg
-					class="-mr-1 ml-2 h-5 w-5"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 20 20"
-					fill="currentColor"
-					aria-hidden="true"
-				>
-					<path
-						fill-rule="evenodd"
-						d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-						clip-rule="evenodd"
-					/>
-				</svg>
-			</button>
-		</div>
-
-		<!--
-    Dropdown menu, show/hide based on menu state.
-
-    Entering: "transition ease-out duration-100"
-      From: "transform opacity-0 scale-95"
-      To: "transform opacity-100 scale-100"
-    Leaving: "transition ease-in duration-75"
-      From: "transform opacity-100 scale-100"
-      To: "transform opacity-0 scale-95"
-  -->
-		<div
+		<button
+			type="button"
 			class="
-				hidden
+				inline-flex
+				justify-between
+				items-center
+				px-5
+				rounded-md
+				w-full
+				h-14
+				border border-gray-300
+				shadow-sm
+				bg-white
+				text-base
+				font-medium
+				text-gray-400
+				hover:bg-gray-50
+				focus:outline-none
+				focus:ring-2
+				focus:ring-offset-2
+				focus:ring-offset-gray-100
+				focus:ring-indigo-500
+				transition
+				duration-500
+				ease-in-out
+			"
+			id="menu-button"
+			aria-expanded="true"
+			aria-haspopup="true"
+			@click="dropdown.opened = !dropdown.opened"
+		>
+			{{ dropdown.selectedItem ? dropdown.selectedItem : "不限區域" }}
+			<!-- Heroicon name: solid/chevron-down -->
+			<svg
+				class="
+					-mr-1
+					ml-2
+					h-5
+					w-5
+					transform
+					transition
+					duration-1000
+					ease-out
+				"
+				:class="{ 'rotate-180': dropdown.opened }"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 20 20"
+				fill="currentColor"
+				aria-hidden="true"
+			>
+				<path
+					fill-rule="evenodd"
+					d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+					clip-rule="evenodd"
+				/>
+			</svg>
+		</button>
+
+		<div
+			v-if="dropdown.opened"
+			class="
 				origin-top-right
-				absolute
-				right-0
+				h-72
+				overflow-y-auto
 				mt-2
-				w-56
+				p-2
 				rounded-md
 				shadow-lg
 				bg-white
 				ring-1 ring-black ring-opacity-5
 				divide-y divide-gray-100
 				focus:outline-none
+				flex flex-col
+				justify-center
+				ssm:flex-row ssm:flex-wrap
 			"
 			role="menu"
 			aria-orientation="vertical"
 			aria-labelledby="menu-button"
 			tabindex="-1"
 		>
-			<div class="py-1" role="none">
-				<!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-				<a
-					href="#"
-					class="text-gray-700 block px-4 py-2 text-sm"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-0"
-					>Edit</a
-				>
-				<a
-					href="#"
-					class="text-gray-700 block px-4 py-2 text-sm"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-1"
-					>Duplicate</a
-				>
-			</div>
-			<div class="py-1" role="none">
-				<a
-					href="#"
-					class="text-gray-700 block px-4 py-2 text-sm"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-3"
-					>Move</a
-				>
-			</div>
-			<div class="py-1" role="none">
-				<a
-					href="#"
-					class="text-gray-700 block px-4 py-2 text-sm"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-4"
-					>Share</a
-				>
-				<a
-					href="#"
-					class="text-gray-700 block px-4 py-2 text-sm"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-5"
-					>Add to favorites</a
-				>
-			</div>
-			<div class="py-1" role="none">
-				<a
-					href="#"
-					class="text-gray-700 block px-4 py-2 text-sm"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-6"
-					>Delete</a
-				>
-			</div>
+			<button
+				v-for="city in dropdown.cities"
+				@click="setDropdownSelected(city)"
+				class="
+					ssm:px-2 ssm:py-1 ssm:m-2 ssm:border
+					py-1
+					rounded-md
+					text-primary
+					hover:bg-primary hover:text-white
+				"
+			>
+				{{ city }}
+			</button>
 		</div>
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, reactive } from "vue";
+
+const refNumber = ref(0);
+const dropdown = reactive({
+	selectedItem: "",
+	opened: false,
+	cities: [
+		"臺北市",
+		"新北市",
+		"桃園市",
+		"臺中市",
+		"臺南市",
+		"高雄市",
+		"新竹縣",
+		"苗栗縣",
+		"彰化縣",
+		"南投縣",
+		"雲林縣",
+		"嘉義縣",
+		"基隆市",
+		"新竹市",
+		"嘉義市",
+		"屏東縣",
+		"宜蘭縣",
+		"花蓮縣",
+		"臺東縣",
+		"澎湖縣",
+		"金門縣",
+		"連江縣",
+	],
+});
+
+function setDropdownSelected(city: string) {
+	dropdown.selectedItem = city;
+	dropdown.opened = false;
+}
+</script>
