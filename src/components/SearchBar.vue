@@ -27,7 +27,7 @@ import DropDownList from "./DropDownList.vue";
 		<button
 			class="z-10 bg-primary w-full text-white rounded-lg h-14 md:w-48"
 		>
-			搜尋
+			搜尋*
 		</button>
 	</div>
 </template>
