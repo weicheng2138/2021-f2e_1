@@ -1,3 +1,42 @@
+<script setup lang="ts">
+import { ref, reactive } from "vue";
+
+const refNumber = ref(0);
+const dropdown = reactive({
+	selectedItem: "",
+	opened: false,
+	cities: [
+		"臺北市",
+		"新北市",
+		"桃園市",
+		"臺中市",
+		"臺南市",
+		"高雄市",
+		"新竹縣",
+		"苗栗縣",
+		"彰化縣",
+		"南投縣",
+		"雲林縣",
+		"嘉義縣",
+		"基隆市",
+		"新竹市",
+		"嘉義市",
+		"屏東縣",
+		"宜蘭縣",
+		"花蓮縣",
+		"臺東縣",
+		"澎湖縣",
+		"金門縣",
+		"連江縣",
+	],
+});
+
+const setDropdownSelected = (city: string) => {
+	dropdown.selectedItem = city;
+	dropdown.opened = false;
+};
+</script>
+
 <template>
 	<div class="transition duration-500 ease-in-out">
 		<!-- This example requires Tailwind CSS v2.0+ -->
@@ -17,7 +56,7 @@
 				text-base
 				font-medium
 				text-gray-400
-				hover:bg-gray-50
+				hover:bg-gray-100
 				focus:outline-none
 				focus:ring-2
 				focus:ring-offset-2
@@ -97,42 +136,3 @@
 		</div>
 	</div>
 </template>
-
-<script setup lang="ts">
-import { ref, reactive } from "vue";
-
-const refNumber = ref(0);
-const dropdown = reactive({
-	selectedItem: "",
-	opened: false,
-	cities: [
-		"臺北市",
-		"新北市",
-		"桃園市",
-		"臺中市",
-		"臺南市",
-		"高雄市",
-		"新竹縣",
-		"苗栗縣",
-		"彰化縣",
-		"南投縣",
-		"雲林縣",
-		"嘉義縣",
-		"基隆市",
-		"新竹市",
-		"嘉義市",
-		"屏東縣",
-		"宜蘭縣",
-		"花蓮縣",
-		"臺東縣",
-		"澎湖縣",
-		"金門縣",
-		"連江縣",
-	],
-});
-
-const setDropdownSelected = (city: string) => {
-	dropdown.selectedItem = city;
-	dropdown.opened = false;
-};
-</script>
