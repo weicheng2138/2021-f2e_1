@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { reactive } from "vue";
 
-const refNumber = ref(0);
 const dropdown = reactive({
 	selectedItem: "",
 	opened: false,

@@ -15,6 +15,8 @@ module.exports = {
 			backgroundImage: {
 				"banner-mountain":
 					"url('../assets/images/banner-mountain.png')",
+				"demo-recent":
+					"url('https://www.eastcoast-nsa.gov.tw/image/29064/640x480')",
 			},
 		},
 	},

@@ -29,7 +29,7 @@ export default defineComponent({
 				xl:max-w-4xl
 			"
 		>
-			<a href="/2021-f2e_1" class="flex items-center">
+			<a href="/" class="flex items-center">
 				<img
 					src="../assets/svgs/taiwan-logo.svg"
 					alt="taiwan-logo"
