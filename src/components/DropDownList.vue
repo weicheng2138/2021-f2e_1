@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
+import { onClickOutside } from "@vueuse/core";
 
 const dropdown = reactive({
 	selectedItem: "",
@@ -30,6 +31,9 @@ const dropdown = reactive({
 		"連江縣",
 	],
 });
+
+const target = ref(null);
+onClickOutside(target, () => (dropdown.opened = false));
 
 const setDropdownSelected = (city: string) => {
 	dropdown.selectedItem = city;
@@ -100,6 +104,7 @@ const setDropdownSelected = (city: string) => {
 
 		<div
 			v-if="dropdown.opened"
+			ref="target"
 			class="
 				mt-2
 				p-2
