@@ -62,9 +62,6 @@
 		<div
 			v-if="dropdown.opened"
 			class="
-				origin-top-right
-				h-72
-				overflow-y-auto
 				mt-2
 				p-2
 				rounded-md
@@ -74,8 +71,10 @@
 				divide-y divide-gray-100
 				focus:outline-none
 				flex flex-col
-				justify-center
-				ssm:flex-row ssm:flex-wrap
+				overflow-auto
+				h-72
+				ssm:h-auto ssm:flex-row ssm:flex-wrap ssm:justify-center
+				md:overflow-hidden md:absolute md:w-96
 			"
 			role="menu"
 			aria-orientation="vertical"
@@ -86,7 +85,7 @@
 				v-for="city in dropdown.cities"
 				@click="setDropdownSelected(city)"
 				class="
-					ssm:px-2 ssm:py-1 ssm:m-2 ssm:border
+					ssm:px-2 ssm:m-1 ssm:border
 					py-1
 					rounded-md
 					text-primary
@@ -132,8 +131,8 @@ const dropdown = reactive({
 	],
 });
 
-function setDropdownSelected(city: string) {
+const setDropdownSelected = (city: string) => {
 	dropdown.selectedItem = city;
 	dropdown.opened = false;
-}
+};
 </script>
