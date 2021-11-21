@@ -8,7 +8,7 @@ export default defineComponent({
 		return { liked: true };
 	},
 	methods: {
-		onlike() {
+		onLike() {
 			this.liked = !this.liked;
 		},
 	},
@@ -17,37 +17,14 @@ export default defineComponent({
 
 <template>
 	<div class="flex justify-center">
-		<div
-			class="
-				flex
-				w-full
-				items-center
-				justify-between
-				h-24
-				px-3
-				md:px-6
-				xl:max-w-4xl
-			"
-		>
+		<div class="flex w-full items-center justify-between h-24 px-3 md:px-6 xl:max-w-4xl">
 			<a href="/" class="flex items-center">
-				<img
-					src="../assets/svgs/taiwan-logo.svg"
-					alt="taiwan-logo"
-					class="mr-2"
-				/>
+				<img src="../assets/svgs/taiwan-logo.svg" alt="taiwan-logo" class="mr-2" />
 				<h1 class="text-lg font-normal">Taiwan Travel</h1>
 			</a>
 			<button
-				class="
-					w-11
-					h-11
-					bg-primary
-					rounded-lg
-					flex
-					justify-center
-					items-center
-				"
-				@click="onlike()"
+				class="w-11 h-11 bg-primary rounded-lg flex justify-center items-center"
+				@click="onLike()"
 			>
 				<svg
 					v-if="liked"
