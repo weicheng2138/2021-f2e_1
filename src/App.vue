@@ -23,7 +23,7 @@ import Card from "./components/Card.vue";
 		"
 	>
 		<div class="absolute flex gap-6">
-			<Card :title="'天涯海角'" :position="'新北市'" />
+			<Card :title="'上天下海'" :position="'新北市'" />
 			<Card :title="'天涯海角'" :position="'台北市'" />
 			<Card :title="'天涯海角'" :position="'台北市'" />
 			<Card :title="'天涯海角'" :position="'台北市'" />
